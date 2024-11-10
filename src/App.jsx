@@ -3,20 +3,28 @@ import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 
 function App() {
-  const [todos, setTodos] = useState([
-    "Go to the gym",
-    "Eat more fruits and veg",
-  ]);
+  const [todos, setTodos] = useState([]);
 
+  //Add Function
   function handleAddTodos(newTodo) {
     const newTodoList = [...todos, newTodo];
     setTodos(newTodoList);
   }
+
+  //Delete Function
+  function handleDeleteTodo(index) {
+    const newTodoList = todos.filter((todo, todoIndex) => {
+      return todoIndex !== index;
+    });
+    setTodos(newTodoList);
+  }
+  //Update Function
+  function handleUpdateTodo(index) {}
   return (
     <>
       <>
         <TodoInput handleAddTodos={handleAddTodos} />
-        <TodoList todos={todos} />
+        <TodoList handleDeleteTodo={handleDeleteTodo} todos={todos} />
       </>
     </>
   );
