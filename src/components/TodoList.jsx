@@ -1,5 +1,16 @@
 import React from "react";
 
 export default function TodoList() {
-  return <div>TodoList</div>;
+  let todos = ["Go to the gym", "Eat more fruits and veg"];
+  return (
+    <ul className="main">
+      {todos.map((todo, todoIndex) => {
+        return (
+          <li className="todoItem" key={todoIndex}>
+            {todo}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
